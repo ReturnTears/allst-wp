@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
+    "start2": "webpack-dev-server --open --port 4567 --contentBase src --hot",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
@@ -13,7 +14,16 @@
   "author": "JUNN",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "webpack": "^4.39.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "css-loader": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
 }
