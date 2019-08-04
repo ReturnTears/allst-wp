@@ -7,6 +7,7 @@ import $ from 'jquery'
 // 2.导入css, webpack默认只能打包JS文件, 不能打包非JS类型的文件
 import './css/index.css'
 import './css/index.less'
+import './css/index.scss'
 
 $(function () {
     $('li:odd').css('backgroundColor', 'pink');

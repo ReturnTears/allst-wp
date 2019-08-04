@@ -32,6 +32,10 @@ module.exports = {
             {
                 // 正则匹配less
                 test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                // 正则匹配sass
+                test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     }
