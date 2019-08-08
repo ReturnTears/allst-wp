@@ -5,4 +5,19 @@ html, body {
     font-size: 17px;
     line-height: 30px;
   }
+
+  .box {
+    width: 220px;
+    height: 120px;
+    // 默认情况下,webpack不能帮我们处理CSS文件中的url地址,不管是字体库,只要是URL地址都处理不了
+    background: url("../images/huge.jpg");
+    background-size: cover;
+  }
+
+  .box {
+    width: 220px;
+    height: 120px;
+    background: url("../images/246473.jpg");
+    background-size: cover;
+  }
 }

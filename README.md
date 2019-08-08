@@ -131,6 +131,13 @@ cnpm i style-loader css-loader -D
 项目根路径下运行:
 npm run dev / start / 
  
+ 
+ less scss css三种样式在项目不一定全部需要配置
+ 
+11 - url-loader
+ cnpm i url url-loader file-loader -D
+ 
+ 
 ```
 
 

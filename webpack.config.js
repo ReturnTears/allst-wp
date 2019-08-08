@@ -36,6 +36,16 @@ module.exports = {
             {
                 // 正则匹配sass
                 test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                // 处理图片路径的loader,limit给定的值是图片的大小,单位是byte, 如果我们引用的图片大于等于给定值的limit值,则不会被转为base64格式的字符串,
+                // 如果小于则会被转为base64的字符串, 不被转换的base64可以使用项目启动的地址路径访问:http://localhost:3000/4f1cf1440d433948298121cd03106456.jpg
+                // 文件名被转为了hash值, 这样是为了保证不重名
+                //test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595'
+                // 使用图片原有的名字
+                test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595&name=[name].[ext]'
+                // 如果项目中有同名的文件, 为了打包时后面的文件不覆盖前面的文件,可以使用带hash的文件名进行重命名
+                //test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595&name=[hash:8]-[name].[ext]'
             }
         ]
     }
