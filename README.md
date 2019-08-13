@@ -137,6 +137,8 @@ npm run dev / start /
 11 - url-loader
  cnpm i url url-loader file-loader -D
  
+12 - bootstrap
+ cnpm i bootstrap -S  
  
 ```
 

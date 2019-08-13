@@ -46,6 +46,9 @@ module.exports = {
                 test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595&name=[name].[ext]'
                 // 如果项目中有同名的文件, 为了打包时后面的文件不覆盖前面的文件,可以使用带hash的文件名进行重命名
                 //test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595&name=[hash:8]-[name].[ext]'
+            },
+            {
+                test:/\.(ttf|eot|woff|woff2)$/, use: 'url-loader'
             }
         ]
     }
