@@ -48,7 +48,13 @@ module.exports = {
                 //test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=147,595&name=[hash:8]-[name].[ext]'
             },
             {
-                test:/\.(ttf|eot|woff|woff2)$/, use: 'url-loader'
+                // 处理字体文件
+                test:/\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader'
+            },
+            {
+                // babel loader, 用来处理转换高级ES语法
+                test:/\.js$/, use: 'babel-loader', exclude: /node_modules/
+
             }
         ]
     }

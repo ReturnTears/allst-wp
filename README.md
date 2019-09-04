@@ -45,7 +45,7 @@ webpack-dev-server帮我们打包的bundle.js文件并没有放到实际的物�
 --contentBase 指定路径
 --hot 热更新(只是更新了修改部分的js文件, 实现页面异步刷新)
 
-在内存种生成HTML页面的安装命令:
+在内存中生成HTML页面的安装命令:
 cnpm i html-webpack-plugin -D
 只要时插件都要导入到plugins中
 当使用了html-webpack-plugin之后, 我们不再需要手动bundle.js的引用路径了, 因为这个插件会自动帮我们创建一个合适的script并引入正确的路径
@@ -140,6 +140,49 @@ npm run dev / start /
 12 - bootstrap
  cnpm i bootstrap -S  
  
+13 - webpack默认只能处理一部分ES的新语法, 一些更高级的ES语法或者ES7语法需要借助第三方的loader,
+    第三方的loader可以把高级语法转换为低级的语法之后会把结果交给webpack去打包到bundle.js中
+    
+    通过Babel可以帮我们将高级语法转换为低级语法
+    在webpack中,可以运行如下两组命令去安装Babel相关的loader功能
+    1)cnpm i babel-core babel-loader babel-plugin-transform-runtime -D
+    2)cnpm i babel-preset-env babel-preset-stage-0 -D
+    打开webpack的配置文件,在module节点下的rules数组中,添加新的匹配规则,排除loader本身已存在的js文件包
+    {test: /\.js$/, use:'babel-loader', exclude:/node_modules/}
+    在项目的根目录下,新建一个叫做.babelrc的Babel配置文件,这个配置文件属于JSON格式
+    在.babelrc中配置:
+    {
+        "presets":["env", "stage-0"],
+        "plusgins":["transform-runtime"]
+    }
+    
+14 - 在webpack构建的项目中使用Vue开发
+    回顾:
+    在普通的网页开发中使用Vue:
+    1.使用script标签,引入Vue的包,
+    2.在index页面中创建一个id为app的div容器
+    3.通过new Vue得到一个VM的实例
+    
+    在webpack中使用Vue:
+    1.安装Vue依赖, cnpm i vue -S    (cnpm是淘宝的国内镜像)
+    2.安装解析.vue文件的loader, cnpm i vue-loader vue-template-complier -D
+    3.在main.js文件中导入vue模块,import Vue from 'vue'
+    4.定义.vue文件, 文件组成部分:template script style
+    5. import x from 'x.vue'导入组件
+    6.创建VM实例, var vm = new Vue({el: '#app', data: {}, render: c => c(x.vue) })
+    7.在页面定义一个id为app的div元素
+    
+在webpack中,如果想要通过Vue把一个组件放到页面中区展示,Vm实例中的render函数可以实现
+
+
+15 Node中向外曝露成员的形式:  module.export = {}
+    var 名称 = require('模块标识符')
+    module.exports 和 exports来曝露成员
+    
+    ES6中导入模块使用import 模块名称 from 模块标识符  / import 路径
+    ES6中使用export default 和export向外曝露成员, 注意, 使用export向外曝露的成员只能使用{}来接收, 这种形式叫做"按需导出"
+
+    
 ```
 
 
