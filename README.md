@@ -1,5 +1,30 @@
-# 
+# webpack
 ```
+从0开始创建webpack项目
+1、新建文件夹：allst-wp-rows
+2、在文件夹下打开终端：cmd
+3、输入命令：npm init -y
+4、新建src文件夹，代码文件全部放在这里
+5、在src文件夹下新建index.html和index.js文件
+6、在index.html文件中初始化页面结构
+7、安装jquery:npm i jquery -S
+   i是install的简写
+   -S 可以省略，是--save的简写，表示将包安装在dependencies中
+   -D 是--save-dev的简写，表示将包安装在devdependencies中
+8、编写index.js
+9、安装webpack
+   npm i webpack@5.42.1 webpack-cli@4.7.2 -D
+10、配置webpack
+   在项目根目录下新建webpack.config.js文件，配置
+   module.exports = {
+       mode: "development"
+   }
+11、在package.json文件中script节点下，新增dev脚本
+   "scripts":{
+       "dev": "webpack"
+    }
+12、运行： npm run dev
+
 项目中使用npm之前需要初始化: npm init -y
 再安装: npm i jquery -S
 npm i webpack -S

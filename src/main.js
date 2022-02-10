@@ -23,11 +23,11 @@ class Person {
     // 实例属性可以通过实例来访问
     static info = {name: 'JUNN', age: 18}
 }
-var p1 = new Person();
+// var p1 = new Person();
 
-var vm = new Vue({
-   el: '#app',
-   data: {
-       msg: 'webpack'
-   }
-});
+// var vm = new Vue({
+//    el: '#app',
+//    data: {
+//        msg: 'webpack'
+//    }
+// });
