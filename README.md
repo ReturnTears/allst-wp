@@ -25,6 +25,19 @@
     }
 12、运行： npm run dev
 
+webpack的默认约定：
+在webpack4.x和5.x的版本中，有如下默认约定
+1)、默认的打包入口文件为src -> index.js
+2)、默认的输出文件路径为dist -> main.js
+可以在webpack.config.js中修改打包的默认约定，通过entry节点指定打包的入口，output节点指定打包出口
+文件开头指定：const path = require('path')
+entry: path.join(__dirname, './src/xxx.js') 
+output: {
+    path: path.join(__dirname, 'dist') ,
+    filename: 'bundle.js'
+}
+
+
 项目中使用npm之前需要初始化: npm init -y
 再安装: npm i jquery -S
 npm i webpack -S
